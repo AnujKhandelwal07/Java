@@ -1,0 +1,46 @@
+package Utility;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Copy {
+	public static void main(String [] args)
+	{
+		BufferedReader br = null;
+		FileReader fr = null;
+        FileWriter fw = null;
+		
+		try {
+			br = new BufferedReader(new InputStreamReader(System.in));
+			
+			System.out.println("Enter Source File Path:");
+			String sourcePath = br.readLine();
+			fr = new FileReader(sourcePath);
+			
+			System.out.println("Enter Destination File Path:");
+			String destinationPath = br.readLine();
+	        fw = new FileWriter(destinationPath);
+	        
+	        int n = 0;
+	        while((n = fr.read())!= -1)
+	        {
+	        	fw.write(n);
+	        }
+	        System.out.println("File copied successfully.");
+	        
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fr.close();
+                fw.close();
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+		}
+	}
+}
