@@ -1,0 +1,36 @@
+package Utility;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class ShowCount {
+    public static void main(String[] args) {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int alphabetCount = 0;
+        int digitCount = 0;
+        System.out.println("Enter 'q' to quit the iteration");
+        int n = 0;
+        try {
+            while ((n = br.read()) != 'q') {
+                char ch = (char) n;
+                if (Character.isAlphabetic(ch)) {
+                    alphabetCount++;
+                } else if (Character.isDigit(ch)) {
+                    digitCount++;
+                }
+                System.out.println(ch);
+            }
+        } catch (IOException e) {
+            System.out.println("Got an IOException.");
+        } finally {
+            System.out.println("Alphabet count: " + alphabetCount);
+            System.out.println("Digit count: " + digitCount);
+            try {
+                br.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
