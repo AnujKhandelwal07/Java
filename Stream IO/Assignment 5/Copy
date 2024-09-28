@@ -11,7 +11,7 @@ public class Copy {
 	{
 		BufferedReader br = null;
 		FileReader fr = null;
-        FileWriter fw = null;
+        	FileWriter fw = null;
 		
 		try {
 			br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,25 +22,25 @@ public class Copy {
 			
 			System.out.println("Enter Destination File Path:");
 			String destinationPath = br.readLine();
-	        fw = new FileWriter(destinationPath);
+	        	fw = new FileWriter(destinationPath);
 	        
-	        int n = 0;
-	        while((n = fr.read())!= -1)
-	        {
-	        	fw.write(n);
-	        }
-	        System.out.println("File copied successfully.");
+	        	int n = 0;
+	        	while((n = fr.read())!= -1)
+	        	{
+	        		fw.write(n);
+	        	}
+	        	System.out.println("File copied successfully.");
 	        
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fr.close();
-                fw.close();
-                br.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        	} catch (IOException e) {
+           	 e.printStackTrace();
+        	} finally {
+            	try {
+                	fr.close();
+                	fw.close();
+                	br.close();
+            	} catch (IOException e) {
+                	e.printStackTrace();
+            	}
 		}
 	}
 }
