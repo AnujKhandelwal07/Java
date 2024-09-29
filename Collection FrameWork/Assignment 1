@@ -1,0 +1,52 @@
+package Utility;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Collection {
+	public static void main(String [] args) throws IOException
+	{
+		List<String> arrList = new ArrayList<String>();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		try {
+			System.out.println("Enter the data: ");
+			
+			String line = "";
+			
+			while (!(line = br.readLine()).equals("stop"))
+			{
+				arrList.add(line);
+			}
+			
+			System.out.println("List is :" +arrList);
+			
+			System.out.println("Enter the index from which you want to remove the element ");
+			
+			int n = Integer.parseInt(br.readLine());
+			
+			if(n >= 0 && n < arrList.size()) {
+		
+				arrList.remove(n);
+			
+				System.out.println("Updated List is :" +arrList);
+			} 
+			else {
+                System.out.println("Invalid index. No element removed.");
+			}
+		}
+			catch (IOException e) {
+	            e.printStackTrace();
+	        } catch (NumberFormatException e) {
+	            System.out.println("Invalid input. Please enter a valid number.");
+	        } finally {
+	            if (br != null) {
+	                br.close();
+	            }
+	  }
+  }
+}
